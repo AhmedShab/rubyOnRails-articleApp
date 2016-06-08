@@ -5,13 +5,13 @@
 @import "bootstrap-sprockets";
 
 // Import cerulean variables
-@import "bootswatch/darkly/variables";
+@import "bootswatch/united/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
 
 // And finally bootswatch style itself
-@import "bootswatch/darkly/bootswatch";
+@import "bootswatch/united/bootswatch";
 
 .center{
   text-align: center;
