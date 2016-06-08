@@ -1,3 +1,24 @@
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+// $navbar-default-bg: #a2a2a2;
+
+
+//Import bootstrap-sprockets
 @import "bootstrap-sprockets";
+
+// Import cerulean variables
+@import "bootswatch/darkly/variables";
+
+// Then bootstrap itself
 @import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/darkly/bootswatch";
+
+.center{
+  text-align: center;
+}
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  bottom: 0
+}
