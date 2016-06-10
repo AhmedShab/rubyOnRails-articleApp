@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
+    # debugger
     if !is_logged_in
       flash[:danger] = "You have to be signed in first"
       redirect_to root_path

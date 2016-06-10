@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -43,5 +45,11 @@ class UsersController < ApplicationController
   end
   def set_user
      @user = User.find(params[:id])
+  end
+  def require_same_user
+    if current_user != @user
+      flash[:danger] = "You are trying to delete someone else's article"
+      redirect_to root_path
+    end
   end
 end
