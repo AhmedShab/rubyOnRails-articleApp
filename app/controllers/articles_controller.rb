@@ -46,7 +46,12 @@ class ArticlesController < ApplicationController
   private
 
   def set_article
-    @article = Article.find(params[:id])
+    if !Article.all.present?
+      flash[:danger] = "You are not allowed to access to this page"
+      redirect_to root_path
+    else
+      @article = Article.find(params[:id])
+    end
   end
   def article_params
     params.require(:article).permit(:title, :description)

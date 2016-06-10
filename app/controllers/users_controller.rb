@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(:page => params[:page], per_page: 1)
+    @users = User.paginate(:page => params[:page], per_page: 5)
   end
 
   def create
@@ -44,7 +44,12 @@ class UsersController < ApplicationController
     #code
   end
   def set_user
-     @user = User.find(params[:id])
+     if !User.all.present?
+       flash[:danger] = "You are not allowed to access to this page"
+       redirect_to root_path
+     else
+       @user = User.find(params[:id])
+     end
   end
   def require_same_user
     if current_user != @user
